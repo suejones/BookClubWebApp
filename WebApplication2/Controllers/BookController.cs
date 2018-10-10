@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication2.Abstract;
 using WebApplication2.DAL;
 using WebApplication2.Models;
 
@@ -13,7 +14,14 @@ namespace WebApplication2.Controllers
 {
     public class BookController : Controller
     {
-        private BookClubContext db = new BookClubContext();
+        //from Microsoft Docs - Mocking EF when Unit Testing Web API 2
+        private IBookClubContext db = new BookClubContext();
+
+        public BookController() { }
+        public BookController(IBookClubContext context)
+        {
+            db = context;
+        }
 
         // GET: Book
         public ActionResult Index()
@@ -83,7 +91,7 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(book).State = EntityState.Modified;
+                db.MarkAsModified(book);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
