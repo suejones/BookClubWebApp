@@ -13,6 +13,7 @@ namespace WebApplication2.Abstract
         DbSet<Book> Books { get; }
         DbSet<Review> Reviews { get; }
         DbSet<BookList> BookLists { get; }
+        DbSet<Library> Libraries { get; }
 
         int SaveChanges();
         void MarkAsModified(Object item);
