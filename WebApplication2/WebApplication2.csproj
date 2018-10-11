@@ -194,12 +194,19 @@
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="DAL\BookClubContext.cs" />
+    <Compile Include="EF6Console\Migrations.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810111529088_BookClubWebAppv1.1 .cs" />
+    <Compile Include="Migrations\201810111529088_BookClubWebAppv1.1 .Designer.cs">
+      <DependentUpon>201810111529088_BookClubWebAppv1.1 .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookList.cs" />
@@ -280,6 +287,11 @@
     <Content Include="Views\Review\Details.cshtml" />
     <Content Include="Views\Review\Edit.cshtml" />
     <Content Include="Views\Review\Index.cshtml" />
+    <Content Include="Views\Library\Create.cshtml" />
+    <Content Include="Views\Library\Delete.cshtml" />
+    <Content Include="Views\Library\Details.cshtml" />
+    <Content Include="Views\Library\Edit.cshtml" />
+    <Content Include="Views\Library\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -296,6 +308,11 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810111529088_BookClubWebAppv1.1 .resx">
+      <DependentUpon>201810111529088_BookClubWebAppv1.1 .cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

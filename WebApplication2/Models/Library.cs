@@ -19,7 +19,7 @@ namespace WebApplication2.Models
 
         [Required]
         [Display(Name = "Library email address")]
-        public MailAddress LibraryEmail { get; set; }
+        public string LibraryEmail { get; set; }
 
         [Required(ErrorMessage = "What province is your Library in?")]
         public string Province { get; set; }

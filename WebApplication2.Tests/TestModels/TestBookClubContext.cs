@@ -14,14 +14,14 @@ namespace WebApplication2.Tests.TestModels
         public TestBookClubContext()
         {
             this.Books = new TestBookDbSet();
-            this.BookLists = new TestBookListDbSet();
             this.Reviews = new TestReviewDbSet();
-
+            this.BookLists = new TestBookListDbSet();
+            //this.Libraries = new TestLibraryDbSet();
         }
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Review> Reviews { get; set; }
-        public DbSet<BookList> BookLists { get; set; }
+        public DbSet<BookList> Libraries { get; set; }
 
         public int SaveChanges()
         {
