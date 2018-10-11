@@ -204,6 +204,7 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Library.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Review.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
