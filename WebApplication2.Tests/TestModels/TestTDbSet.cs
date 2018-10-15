@@ -28,4 +28,11 @@ namespace WebApplication2.Tests.TestModels
             return this.SingleOrDefault(review => review.ReviewID == (int)keyValues.Single());
         }
     }
+    class TestLibraryDbSet : TestDbSet<Library>
+    {
+        public override Library Find(params object[] keyValues)
+        {
+            return this.SingleOrDefault(review => review.LibraryID == (int)keyValues.Single());
+        }
+    }
 }

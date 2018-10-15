@@ -202,9 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201810111529088_BookClubWebAppv1.1 .cs" />
-    <Compile Include="Migrations\201810111529088_BookClubWebAppv1.1 .Designer.cs">
-      <DependentUpon>201810111529088_BookClubWebAppv1.1 .cs</DependentUpon>
+    <Compile Include="Migrations\201810151851228_InitialCreate.cs" />
+    <Compile Include="Migrations\201810151851228_InitialCreate.Designer.cs">
+      <DependentUpon>201810151851228_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -245,7 +245,9 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -310,8 +312,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201810111529088_BookClubWebAppv1.1 .resx">
-      <DependentUpon>201810111529088_BookClubWebAppv1.1 .cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201810151851228_InitialCreate.resx">
+      <DependentUpon>201810151851228_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

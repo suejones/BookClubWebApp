@@ -20,7 +20,7 @@ namespace WebApplication2.DAL
         public DbSet<Book> Books { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<BookList> BookLists { get; set; }
-        //public DbSet<Library> Libraries { get; set; }
+        public DbSet<Library> Libraries { get; set; }
 
         //to prevent EF to pluralize table names
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
