@@ -300,7 +300,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="BookClubVisual\" />
-    <Folder Include="NewFolder1\" />
+    <Folder Include="Empty\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
