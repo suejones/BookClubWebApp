@@ -22,6 +22,12 @@ namespace WebApplication2.Controllers
             return View(db.Libraries.ToList());
         }
 
+        // GET: Libraries
+        public ActionResult ViewAllLibraries()
+        {
+            var libraries = db.Libraries.Include(b => b.LibraryName);
+            return View(libraries.ToList());
+        }
         // GET: Library/Details/5
         public ActionResult Details(int? id)
         {

@@ -31,6 +31,12 @@ namespace WebApplication2.Controllers
             return View(db.Books.ToList());
         }
 
+        // GET: Books
+        public ActionResult ViewAllBooks()
+        {
+            var books = db.Books.Include(b => b.BookName);
+            return View(books.ToList());
+        }
         // GET: Book/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,6 +55,7 @@ namespace WebApplication2.Controllers
         // GET: Book/Create
         public ActionResult Create()
         {
+            //ViewBag.BookName = new ChoiceList(db.Books, "BookISBN", "BookName", "AuthorFName", "AuthLName");
             return View();
         }
 
@@ -59,12 +66,21 @@ namespace WebApplication2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BookISBN,BookName,AuthorFirstName,AuthorLastName,Genre,GenreType")] Book book)
         {
-            if (ModelState.IsValid)
+            try
             {
-                db.Books.Add(book);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Books.Add(book);
+                    db.SaveChanges();
+                    return RedirectToAction("ViewAllBooks");
+                }
             }
+            catch(DuplicateNameException)
+            {
+                ModelState.AddModelError("", "Unable to save changes. These Book Details already exist");
+            }
+            //ViewBag.BookName = new ChoiceList(db.Books, "BookISBN", "BookName", "AuthorFName", "AuthLName");
+
 
             return View(book);
         }
@@ -72,6 +88,8 @@ namespace WebApplication2.Controllers
         // GET: Book/Edit/5
         public ActionResult Edit(int? id)
         {
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

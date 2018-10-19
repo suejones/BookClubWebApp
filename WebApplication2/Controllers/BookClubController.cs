@@ -11,6 +11,7 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
+    [Authorize]
     public class BookClubController : Controller
     {
         private BookClubContext db = new BookClubContext();
@@ -21,8 +22,15 @@ namespace WebApplication2.Controllers
             return View(db.BookClubs.ToList());
         }
 
-        // GET: BookClub/Details/5
-        public ActionResult Details(int? id)
+        // GET: BookClubs
+        public ActionResult ViewAllBookClubs()
+        {
+            var bookclubs = db.BookClubs.Include(b => b.BookClubName);
+            return View(bookclubs.ToList());
+        }
+
+            // GET: BookClub/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {
