@@ -6,122 +6,112 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using WebApplication2.Abstract;
 using WebApplication2.DAL;
 using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
-    [Authorize]
-    public class BookController : Controller
+    public class BookClubMemberController : Controller
     {
-        //from Microsoft Docs - Mocking EF when Unit Testing Web API 2
-        
-        private IBookClubContext db = new BookClubContext();
+        private BookClubContext db = new BookClubContext();
 
-        public BookController() { }
-        public BookController(IBookClubContext context)
-        {
-            db = context;
-        }
-
-        // GET: Book
+        // GET: BookClubMember
         public ActionResult Index()
         {
-            return View(db.Books.ToList());
+            return View(db.BookClubMembers.ToList());
         }
 
-        // GET: Book/Details/5
+        // GET: BookClubMember/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            BookClubMember bookClubMember = db.BookClubMembers.Find(id);
+            if (bookClubMember == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(bookClubMember);
         }
 
-        // GET: Book/Create
+        // GET: BookClubMember/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Book/Create
+        // POST: BookClubMember/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookISBN,BookName,AuthorFirstName,AuthorLastName,Genre,GenreType")] Book book)
+        public ActionResult Create([Bind(Include = "MemberID,MemberFirstName,MemberLastName,MemberEmail")] BookClubMember bookClubMember)
         {
             if (ModelState.IsValid)
             {
-                db.Books.Add(book);
+                db.BookClubMembers.Add(bookClubMember);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(book);
+            return View(bookClubMember);
         }
 
-        // GET: Book/Edit/5
+        // GET: BookClubMember/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            BookClubMember bookClubMember = db.BookClubMembers.Find(id);
+            if (bookClubMember == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(bookClubMember);
         }
 
-        // POST: Book/Edit/5
+        // POST: BookClubMember/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookISBN,BookName,AuthorFirstName,AuthorLastName,Genre,GenreType")] Book book)
+        public ActionResult Edit([Bind(Include = "MemberID,MemberFirstName,MemberLastName,MemberEmail")] BookClubMember bookClubMember)
         {
             if (ModelState.IsValid)
             {
-                db.MarkAsModified(book);
+                db.Entry(bookClubMember).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(book);
+            return View(bookClubMember);
         }
 
-        // GET: Book/Delete/5
+        // GET: BookClubMember/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            BookClubMember bookClubMember = db.BookClubMembers.Find(id);
+            if (bookClubMember == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(bookClubMember);
         }
 
-        // POST: Book/Delete/5
+        // POST: BookClubMember/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Book book = db.Books.Find(id);
-            db.Books.Remove(book);
+            BookClubMember bookClubMember = db.BookClubMembers.Find(id);
+            db.BookClubMembers.Remove(bookClubMember);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

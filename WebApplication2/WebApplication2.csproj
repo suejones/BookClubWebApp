@@ -192,6 +192,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BookClubController.cs" />
+    <Compile Include="Controllers\BookClubMemberController.cs" />
     <Compile Include="Controllers\BookController.cs" />
     <Compile Include="Controllers\BookListController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\BookClub.cs" />
     <Compile Include="Models\BookList.cs" />
+    <Compile Include="Models\BookClubMember.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -302,6 +304,11 @@
     <Content Include="Views\BookClub\Details.cshtml" />
     <Content Include="Views\BookClub\Edit.cshtml" />
     <Content Include="Views\BookClub\Index.cshtml" />
+    <Content Include="Views\BookClubMember\Create.cshtml" />
+    <Content Include="Views\BookClubMember\Delete.cshtml" />
+    <Content Include="Views\BookClubMember\Details.cshtml" />
+    <Content Include="Views\BookClubMember\Edit.cshtml" />
+    <Content Include="Views\BookClubMember\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

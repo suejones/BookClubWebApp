@@ -33,5 +33,7 @@ namespace WebApplication2.DAL
         {
             Entry(item).State = EntityState.Modified;
         }
+
+        public System.Data.Entity.DbSet<WebApplication2.Models.BookClubMember> BookClubMembers { get; set; }
     }
 }
