@@ -18,6 +18,7 @@ namespace WebApplication2.Tests.TestModels
             this.BookLists = new TestBookListDbSet();
             this.Libraries = new TestLibraryDbSet();
             this.BookClubs = new TestBookClubDbSet();
+            this.BookClubMembers = new TestBookClubMemberDbSet();
         }
 
         public DbSet<Book> Books { get; set; }
@@ -25,6 +26,7 @@ namespace WebApplication2.Tests.TestModels
         public DbSet<BookList> BookLists { get; set; }
         public DbSet<Library> Libraries { get; set; }
         public DbSet<BookClub> BookClubs { get; set; }
+        public DbSet<BookClubMember> BookClubMembers { get; set; }
 
         public int SaveChanges()
         {

@@ -22,6 +22,7 @@ namespace WebApplication2.DAL
         public DbSet<BookList> BookLists { get; set; }
         public DbSet<Library> Libraries { get; set; }
         public DbSet<BookClub> BookClubs { get; set; }
+        public DbSet<BookClubMember> BookClubMembers { get; set; }
 
         //to prevent EF to pluralize table names
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -34,6 +35,6 @@ namespace WebApplication2.DAL
             Entry(item).State = EntityState.Modified;
         }
 
-        public System.Data.Entity.DbSet<WebApplication2.Models.BookClubMember> BookClubMembers { get; set; }
+     
     }
 }

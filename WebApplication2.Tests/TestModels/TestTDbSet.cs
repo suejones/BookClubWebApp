@@ -42,4 +42,11 @@ namespace WebApplication2.Tests.TestModels
             return this.SingleOrDefault(bookClub => bookClub.BookClubID == (int)keyValues.Single());
         }
     }
+    class TestBookClubMemberDbSet : TestDbSet<BookClubMember>
+    {
+        public override BookClubMember Find(params object[] keyValues)
+        {
+            return this.SingleOrDefault(bookClubMember => bookClubMember.MemberID == (int)keyValues.Single());
+        }
+    }
 }

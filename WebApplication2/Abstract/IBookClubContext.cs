@@ -15,6 +15,7 @@ namespace WebApplication2.Abstract
         DbSet<BookList> BookLists { get; }
         DbSet<Library> Libraries { get; }
         DbSet<BookClub> BookClubs { get; }
+        DbSet<BookClubMember> BookClubMembers { get; }
 
         int SaveChanges();
         void MarkAsModified(Object item);
