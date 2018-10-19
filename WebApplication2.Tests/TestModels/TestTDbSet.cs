@@ -32,7 +32,14 @@ namespace WebApplication2.Tests.TestModels
     {
         public override Library Find(params object[] keyValues)
         {
-            return this.SingleOrDefault(review => review.LibraryID == (int)keyValues.Single());
+            return this.SingleOrDefault(library => library.LibraryID == (int)keyValues.Single());
+        }
+    }
+    class TestBookClubDbSet : TestDbSet<BookClub>
+    {
+        public override BookClub Find(params object[] keyValues)
+        {
+            return this.SingleOrDefault(bookClub => bookClub.BookClubID == (int)keyValues.Single());
         }
     }
 }
