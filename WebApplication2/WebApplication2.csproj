@@ -209,6 +209,10 @@
     <Compile Include="Migrations\201810151851228_InitialCreate.Designer.cs">
       <DependentUpon>201810151851228_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810211522552_BookClubDb.cs" />
+    <Compile Include="Migrations\201810211522552_BookClubDb.Designer.cs">
+      <DependentUpon>201810211522552_BookClubDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -332,6 +336,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201810151851228_InitialCreate.resx">
       <DependentUpon>201810151851228_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201810211522552_BookClubDb.resx">
+      <DependentUpon>201810211522552_BookClubDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
