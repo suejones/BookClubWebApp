@@ -10,6 +10,7 @@ using WebApplication2.Controllers;
 namespace WebApplication2.Tests.Controllers
 {
     [TestClass]
+    [RequireHttps]
     public class HomeControllerTest
     {
         [TestMethod]
