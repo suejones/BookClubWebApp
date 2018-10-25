@@ -26,10 +26,18 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(string bookSearch)
         {
+            var books = db.Books;
             return View(db.Books.ToList());
         }
+
+        /*
+         Search
+
+         */
+
+
 
         // GET: Books
         public ActionResult ViewAllBooks()

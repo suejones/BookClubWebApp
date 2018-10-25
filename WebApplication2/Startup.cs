@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
+using WebApplication2.DAL;
 using WebApplication2.Models;
 
 [assembly: OwinStartupAttribute(typeof(WebApplication2.Startup))]
@@ -16,7 +17,7 @@ namespace WebApplication2
         // In this method we will create default User roles and Admin user for login   
         private void createRolesandUsers()
         {
-            ApplicationDbContext context = new Models.ApplicationDbContext();
+            BookClubContext context = new BookClubContext();
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));

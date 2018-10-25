@@ -23,6 +23,7 @@ namespace WebApplication2.DAL
         public DbSet<Library> Libraries { get; set; }
         public DbSet<BookClub> BookClubs { get; set; }
         public DbSet<BookClubMember> BookClubMembers { get; set; }
+        public static IEnumerable<object> Roles { get; internal set; }
 
         //to prevent EF to pluralize table names
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

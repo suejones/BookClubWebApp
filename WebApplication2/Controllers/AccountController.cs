@@ -8,19 +8,22 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using WebApplication2.DAL;
 using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
     [Authorize]
     public class AccountController : Controller
-    {
+        {
+        private BookClubContext db = new BookClubContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
         public AccountController()
         {
-        }
+                }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
@@ -139,6 +142,8 @@ namespace WebApplication2.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            //ViewBag.Name = new SelectList(BookClubContext.Roles.Where(u => !u.Name.Contains("BCService"))
+                //.ToList(), "Name", "Name");
             return View();
         }
 
