@@ -68,10 +68,10 @@ namespace WebApplication2
             }
 
             // creating Creating Library role    
-            if (!roleManager.RoleExists("BCMember"))
+            if (!roleManager.RoleExists("Library"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "BCMember";
+                role.Name = "Library";
                 roleManager.Create(role);
 
             }
