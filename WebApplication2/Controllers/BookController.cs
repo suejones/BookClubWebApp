@@ -26,7 +26,7 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Book
-        public ActionResult Index(string bookSearch)
+        public ActionResult Index()
         {
             var books = db.Books;
             return View(db.Books.ToList());
@@ -34,6 +34,12 @@ namespace WebApplication2.Controllers
 
         /*
          Search
+        // GET: Book/Search
+        public ActionResult Index(string bookSearch)
+        {
+            var books = db.Books;
+            return View(db.Books.ToList());
+        }
 
          */
 
