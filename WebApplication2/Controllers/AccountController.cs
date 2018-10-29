@@ -13,10 +13,11 @@ using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
+    //ApplicationDbContext context;
     [Authorize]
     public class AccountController : Controller
         {
-        private BookClubContext db = new BookClubContext();
+        //context = new ApplicationDbContext();
 
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
