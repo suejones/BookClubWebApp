@@ -223,6 +223,7 @@
     <Compile Include="Controllers\LibraryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\BookClubContext.cs" />
     <Compile Include="EF6Console\Migrations.cs" />
     <Compile Include="Global.asax.cs">
@@ -338,6 +339,7 @@
     <Content Include="Views\BookClubMember\Details.cshtml" />
     <Content Include="Views\BookClubMember\Edit.cshtml" />
     <Content Include="Views\BookClubMember\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
