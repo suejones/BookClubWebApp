@@ -172,7 +172,7 @@ namespace WebApplication2.Controllers
                     //Ends Here    
                     return RedirectToAction("Index", "Users");
                 }
-                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("BCAdmin"))
                                           .ToList(), "Name", "Name");
                 AddErrors(result);
             }

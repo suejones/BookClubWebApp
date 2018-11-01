@@ -23,7 +23,7 @@ namespace WebApplication2
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
 
 
-            // In Startup iam creating first Admin Role and creating a default Admin User    
+            // Create first Admin Role and default Admin User    
             if (!roleManager.RoleExists("BCService"))
             {
 
@@ -46,7 +46,6 @@ namespace WebApplication2
                 if (chkUser.Succeeded)
                 {
                     var result1 = UserManager.AddToRole(user.Id, "BCService");
-
                 }
             }
 
@@ -59,7 +58,7 @@ namespace WebApplication2
 
             }
 
-            // creating Creating BookClubMember role    
+            // Creating BookClubMember role    
             if (!roleManager.RoleExists("BCMember"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
@@ -68,7 +67,7 @@ namespace WebApplication2
 
             }
 
-            // creating Creating Library role    
+            // Creating Library role    
             if (!roleManager.RoleExists("Library"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();

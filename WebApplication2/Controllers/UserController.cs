@@ -11,6 +11,14 @@ namespace WebApplication2.Controllers
 {
     public class UserController : Controller
     {
+        ApplicationDbContext context;
+
+        public UserController()
+        {
+            context = new ApplicationDbContext();
+        }
+
+
         // GET: User
         public ActionResult Index()
         {
