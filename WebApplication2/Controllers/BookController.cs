@@ -24,33 +24,37 @@ namespace WebApplication2.Controllers
         {
             db = context;
         }
-
+        /*
         // GET: Book
         public ActionResult Index()
         {
             var books = db.Books;
             return View(db.Books.ToList());
         }
-
-        /*
-         Search
+        */
+        
+         //Search
         // GET: Book/Search
         public ActionResult Index(string bookSearch)
         {
-            var books = db.Books;
+            var books = from b in db.Books
+                        select b;
+            if(!String.IsNullOrEmpty(bookSearch))
+            {
+                books = books.Where(k => k.BookTitle.Contains(bookSearch));
+            }
             return View(db.Books.ToList());
         }
 
-         */
-
-
+       
 
         // GET: Books
         public ActionResult ViewAllBooks()
         {
-            var books = db.Books.Include(b => b.BookName);
+            var books = db.Books.Include(b => b.BookTitle);
             return View(books.ToList());
         }
+
         // GET: Book/Details/5
         public ActionResult Details(int? id)
         {

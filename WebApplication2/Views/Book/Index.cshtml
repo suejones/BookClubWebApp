@@ -8,17 +8,20 @@
 
 <p>
     @Html.ActionLink("Create New", "Create")
+
+    @using (Html.BeginForm()){
+        <> Title: @Html.TextBox("bookSearch")<br />
+         <input type="submit" value="Filter"/></>
+                }
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.BookName)
+            @Html.DisplayNameFor(model => model.BookTitle)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.AuthorFirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthorLastName)
+            @Html.DisplayNameFor(model => model.AuthorName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Genre)

@@ -31,8 +31,8 @@ namespace WebApplication2.Controllers.Tests
         public void IndexTest()
         {
             TestBookClubContext tc = new TestBookClubContext();
-            Book testbook1 = new Book { BookISBN = 123, BookName = "The Story" };
-            Book testbook2 = new Book { BookISBN = 456, BookName = "To Kill a Mocking Bird" };
+            Book testbook1 = new Book { BookISBN = 123, BookTitle = "The Story" };
+            Book testbook2 = new Book { BookISBN = 456, BookTitle = "To Kill a Mocking Bird" };
 
             tc.Books.Add(testbook1);
             tc.Books.Add(testbook2);

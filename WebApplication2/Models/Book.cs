@@ -16,21 +16,16 @@ namespace WebApplication2.Models
         [Key]
         public int BookISBN { get; set; }
 
-        [Required(ErrorMessage = "Book Name")]
-        [StringLength(55, ErrorMessage = "Book Name cannot be longer than 25 characters.")]
-        [Display(Name = "Book Name")]
-        public string BookName { get; set; }
+        [Required(ErrorMessage = "Book Title")]
+        [StringLength(55, ErrorMessage = "Book Title cannot be longer than 55 characters.")]
+        [Display(Name = "Book Title")]
+        public string BookTitle { get; set; }
 
-        [Required(ErrorMessage = "Author first name")]
-        [StringLength(55, ErrorMessage = "Author's First Name cannot be longer than 25 characters.")]
-        [Display(Name = "Author First Name")]
-        public string AuthorFirstName { get; set; }
+        [Required(ErrorMessage = "Author Name")]
+        [StringLength(55, ErrorMessage = "Author's Name cannot be longer than 55 characters.")]
+        [Display(Name = "Author Name")]
+        public string AuthorName { get; set; }
 
-
-        [Required(ErrorMessage = "Author last name")]
-        [StringLength(55, ErrorMessage = "Author's Last Name cannot be longer than 25 characters.")]
-        [Display(Name = "Author Last Name")]
-        public string AuthorLastName { get; set; }
 
         [Required(ErrorMessage = "Please select a Genre")]
         public Genre Genre { get; set; }
