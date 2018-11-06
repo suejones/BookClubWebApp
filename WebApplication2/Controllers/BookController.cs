@@ -97,7 +97,7 @@ namespace WebApplication2.Controllers
             {
                 ModelState.AddModelError("", "Unable to save changes. These Book Details already exist");
             }
-            //ViewBag.BookName = new ChoiceList(db.Books, "BookISBN", "BookName", "AuthorFName", "AuthLName");
+            //ViewBag.BookName = new ChoiceList(db.Books, "BookISBN", "BookTitle", "AuthorName");
 
 
             return View(book);
