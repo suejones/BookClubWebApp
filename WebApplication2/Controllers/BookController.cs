@@ -24,14 +24,14 @@ namespace WebApplication2.Controllers
         {
             db = context;
         }
-        /*
+        
         // GET: Book
         public ActionResult Index()
         {
             var books = db.Books;
             return View(db.Books.ToList());
         }
-        */
+        
         
          //Search
         // GET: Book/Search

@@ -41,27 +41,27 @@ namespace WebApplication2.Controllers
             }
             return View();
 
-            Boolean isBCServiceUser()
-            {
-                if (User.Identity.IsAuthenticated)
-                {
-                    var user = User.Identity;
-                    ApplicationDbContext context = new ApplicationDbContext();
-                    var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-                    var s = UserManager.GetRoles(user.GetUserId());
-                    if (s[0].ToString() == "BCService")
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                return false;
 
+        }
+        public Boolean isBCServiceUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var s = UserManager.GetRoles(user.GetUserId());
+                if (s[0].ToString() == "BCService")
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-    }
-    
+            return false;
+
+        }
     }
 }
