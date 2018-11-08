@@ -35,7 +35,7 @@ namespace WebApplication2.Controllers
         
          //Search
         // GET: Book/Search
-        public ActionResult Index(string bookSearch)
+        public ActionResult Search(string bookSearch)
         {
             var books = from b in db.Books
                         select b;

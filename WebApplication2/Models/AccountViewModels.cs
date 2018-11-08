@@ -117,4 +117,5 @@ namespace WebApplication2.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
 }

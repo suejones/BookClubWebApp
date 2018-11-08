@@ -11,39 +11,7 @@ namespace WebApplication2.Controllers
 {
     public class UserController : Controller
     {
-        ApplicationDbContext context;
-
-        public UserController()
-        {
-            context = new ApplicationDbContext();
-        }
-
-
-        // GET: User
-        public ActionResult Index()
-        {
-            if (User.Identity.IsAuthenticated)
-            {
-                var user = User.Identity;
-                ViewBag.Name = user.Name;
-
-                ViewBag.displayMenu = "No";
-
-                if (isBCServiceUser())
-                {
-                    ViewBag.displayMenu = "Yes";
-                }
-                return View();
-            }
-            else
-            {
-                ViewBag.Name = "Not Logged IN";
-            }
-            return View();
-
-
-        }
-        public Boolean isBCServiceUser()
+        public Boolean IsBCServiceAdminUser()
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -63,5 +31,30 @@ namespace WebApplication2.Controllers
             return false;
 
         }
+        // GET: User
+        public ActionResult Index()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ViewBag.Name = user.Name;
+
+                ViewBag.displayMenu = "No";
+
+                if (IsBCServiceAdminUser())
+                {
+                    ViewBag.displayMenu = "Yes";
+                }
+                return View();
+            }
+            else
+            {
+                ViewBag.Name = "Not Logged IN";
+            }
+            return View();
+
+
+        }
+
     }
 }

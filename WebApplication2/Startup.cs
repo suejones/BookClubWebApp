@@ -13,6 +13,7 @@ namespace WebApplication2
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+            createRolesandUsers();
         }
         // In this method we will create default User roles and Admin user for login   
         private void createRolesandUsers()
@@ -24,12 +25,12 @@ namespace WebApplication2
 
 
             // Create first Admin Role and default Admin User    
-            if (!roleManager.RoleExists("BCService"))
+            if (!roleManager.RoleExists("BCServiceAdmin"))
             {
 
                 // first we create Admin rool   
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "BCService";
+                role.Name = "BCServiceAdmin";
                 roleManager.Create(role);
 
                 //Here we create a Admin super user who will maintain the website                  
@@ -45,15 +46,15 @@ namespace WebApplication2
                 //Add default User to Role Admin   
                 if (chkUser.Succeeded)
                 {
-                    var result1 = UserManager.AddToRole(user.Id, "BCService");
+                    var result1 = UserManager.AddToRole(user.Id, "BCServiceAdmin");
                 }
             }
 
             // Creating BookClubAdmin role    
-            if (!roleManager.RoleExists("BCAdmin"))
+            if (!roleManager.RoleExists("BCManager"))
             {
                 var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
-                role.Name = "BCAdmin";
+                role.Name = "BCManager";
                 roleManager.Create(role);
 
             }

@@ -21,7 +21,7 @@ namespace WebApplication2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("BookClubSue", throwIfV1Schema: false)
+            : base("BookClubSJ", throwIfV1Schema: false)
         {
         }
 
@@ -30,4 +30,5 @@ namespace WebApplication2.Models
             return new ApplicationDbContext();
         }
     }
+
 }
