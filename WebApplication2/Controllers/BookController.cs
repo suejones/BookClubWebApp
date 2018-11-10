@@ -35,7 +35,7 @@ namespace WebApplication2.Controllers
         
          //Search
         // GET: Book/Search
-        public ActionResult Search(string bookSearch)
+        public ActionResult Search(string bookSearch, string authorSearch)
         {
             var books = from b in db.Books
                         select b;
@@ -43,7 +43,25 @@ namespace WebApplication2.Controllers
             {
                 books = books.Where(k => k.BookTitle.Contains(bookSearch));
             }
-            return View(db.Books.ToList());
+            if (!String.IsNullOrEmpty(authorSearch))
+            {
+                books = books.Where(k => k.AuthorName.Contains(authorSearch));
+            }
+            if(books.ToList().Count == 0)
+            {
+                //google api search
+                // or redirect to add..do you want to add book
+
+                return RedirectToAction("Create");
+
+            }
+
+
+            return View(books.ToList());
+
+
+
+
         }
 
        
