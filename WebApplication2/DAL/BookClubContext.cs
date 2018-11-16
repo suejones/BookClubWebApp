@@ -6,6 +6,9 @@ using System.Linq;
 using System.Web;
 using WebApplication2.Abstract;
 using WebApplication2.Models;
+using System.Data.Entity.Migrations;
+
+
 
 namespace WebApplication2.DAL
 {
@@ -13,7 +16,7 @@ namespace WebApplication2.DAL
     {
         public BookClubContext() : base("BookClubContext")
         {
-               //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbContext, EF6Console.Migrations.Configuration>());
+               Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbContext, EF6Console.Migrations.Configurations>());
             
         }
         

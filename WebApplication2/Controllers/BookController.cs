@@ -31,43 +31,74 @@ namespace WebApplication2.Controllers
             var books = db.Books;
             return View(db.Books.ToList());
         }
-        
-        
-         //Search
+
+
+        //Search
         // GET: Book/Search
-        public ActionResult Search(string bookSearch, string authorSearch)
+        [AllowAnonymous]
+        public ActionResult Search(BookSearch searchBook)
         {
-            var books = from b in db.Books
-                        select b;
-            if(!String.IsNullOrEmpty(bookSearch))
+            var result = db.Books.AsQueryable();
+            if (searchBook != null)
             {
-                books = books.Where(k => k.BookTitle.Contains(bookSearch));
+                if (!string.IsNullOrEmpty(searchBook.BookTitle))
+                {
+                    result = result.Where(t => t.BookTitle.Contains(searchBook.BookTitle));
+                }
+
+                if (!string.IsNullOrEmpty(searchBook.AuthorName))
+                {
+                    result = result.Where(t => t.AuthorName == searchBook.AuthorName);
+                }
+
+                /*if (searchBook.Genre.)
+                   {
+                     result = result.Where(t => t.Genre == searchBook.Genre);
+                    }*/
+
+                /*if (searchBook.GenreType.)
+                    {
+                       result = result.Where(t => t.GenreType == searchBook.GenreType);
+                    }
+
+
+//you have an extra if statement here in case the result is null to redirect to Create page
+}
+return View("Index", result.OrderByDescending(t => t.Duration));
+}
+
+
+/* var books = from b in db.Books
+         select b;
+if(!String.IsNullOrEmpty(BookSearchModel))
+{
+ books = books.Where(k => k.BookTitle.Contains(BookSearchModel));
+}
+if (!String.IsNullOrEmpty(authorSearch))
+{
+ books = books.Where(k => k.AuthorName.Contains(authorSearch));
+}
+if(books.ToList().Count == 0)
+{
+ //google api search
+ // or redirect to add..do you want to add book
+
+ return RedirectToAction("Create");
+
+}
+
+
+return View(books.ToList());
+
+*/
+
+
             }
-            if (!String.IsNullOrEmpty(authorSearch))
-            {
-                books = books.Where(k => k.AuthorName.Contains(authorSearch));
-            }
-            if(books.ToList().Count == 0)
-            {
-                //google api search
-                // or redirect to add..do you want to add book
-
-                return RedirectToAction("Create");
-
-            }
-
-
-            return View(books.ToList());
 
 
 
-
-        }
-
-       
-
-        // GET: Books
-        public ActionResult ViewAllBooks()
+            // GET: Books
+            public ActionResult ViewAllBooks()
         {
             var books = db.Books.Include(b => b.BookTitle);
             return View(books.ToList());

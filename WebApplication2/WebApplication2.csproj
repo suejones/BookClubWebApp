@@ -266,6 +266,7 @@
     <Compile Include="Models\BookClub.cs" />
     <Compile Include="Models\BookList.cs" />
     <Compile Include="Models\BookClubMember.cs" />
+    <Compile Include="Models\BookSearch.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Library.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
