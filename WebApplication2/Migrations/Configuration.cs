@@ -3,13 +3,18 @@ namespace WebApplication2.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Data.Entity.Migrations.Infrastructure;
+    using System.Diagnostics;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication2.DAL.BookClubContext>
+    public sealed class Configuration : DbMigrationsConfiguration<WebApplication2.DAL.BookClubContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
+            ContextKey = "WebApplication2.DAL.BookClubContext";
+
         }
 
         protected override void Seed(WebApplication2.DAL.BookClubContext context)

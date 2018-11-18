@@ -51,21 +51,22 @@ namespace WebApplication2.Controllers
                     result = result.Where(t => t.AuthorName == searchBook.AuthorName);
                 }
 
-                /*if (searchBook.Genre.)
+                /*if (!enum.(searchBook.Genre))
                    {
                      result = result.Where(t => t.Genre == searchBook.Genre);
-                    }*/
+                    }
 
-                /*if (searchBook.GenreType.)
+                
+                if (searchBook.GenreType.)
                     {
                        result = result.Where(t => t.GenreType == searchBook.GenreType);
-                    }
+                    }*/
 
 
 //you have an extra if statement here in case the result is null to redirect to Create page
-}
-return View("Index", result.OrderByDescending(t => t.Duration));
-}
+                    }
+                    return View("Index", result.OrderByDescending(t => t.AuthorName));
+
 
 
 /* var books = from b in db.Books
@@ -84,21 +85,12 @@ if(books.ToList().Count == 0)
  // or redirect to add..do you want to add book
 
  return RedirectToAction("Create");
-
+ */
 }
 
 
-return View(books.ToList());
-
-*/
-
-
-            }
-
-
-
-            // GET: Books
-            public ActionResult ViewAllBooks()
+       // GET: Books
+       public ActionResult ViewAllBooks()
         {
             var books = db.Books.Include(b => b.BookTitle);
             return View(books.ToList());
@@ -218,4 +210,5 @@ return View(books.ToList());
             base.Dispose(disposing);
         }
     }
+
 }

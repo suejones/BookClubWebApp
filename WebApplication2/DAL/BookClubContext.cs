@@ -11,12 +11,13 @@ using System.Data.Entity.Migrations;
 
 
 namespace WebApplication2.DAL
-{
+
+    {
     public class BookClubContext : DbContext, IBookClubContext
     {
         public BookClubContext() : base("BookClubContext")
         {
-               Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbContext, EF6Console.Migrations.Configurations>());
+               //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbContext, EF6Console.Migrations.Configuration>());
             
         }
         
