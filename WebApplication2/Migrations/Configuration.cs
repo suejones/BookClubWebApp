@@ -1,13 +1,12 @@
-namespace WebApplication2.Migrations
-{
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Data.Entity.Migrations.Infrastructure;
-    using System.Diagnostics;
-    using System.Linq;
+using System.Data.Entity.Migrations;
+using System.Configuration;
 
-    public sealed class Configuration : DbMigrationsConfiguration<WebApplication2.DAL.BookClubContext>
+
+namespace WebApplication2
+{
+    
+
+    internal sealed class Configuration : DbMigrationsConfiguration<WebApplication2.DAL.BookClubContext>
     {
         public Configuration()
         {

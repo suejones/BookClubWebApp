@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Web;
 using WebApplication2.Abstract;
 using WebApplication2.Models;
-using System.Data.Entity.Migrations;
 
 
 
 namespace WebApplication2.DAL
 
-    {
+{
     public class BookClubContext : DbContext, IBookClubContext
     {
         public BookClubContext() : base("BookClubContext")
