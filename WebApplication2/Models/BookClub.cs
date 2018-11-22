@@ -4,6 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication2.Models
 {
+    public enum Province {Leinster, Munster, Connaught, Ulster, }
+    public enum Status { Open, Closed }
+    
     public class BookClub
     {
         [Key]
@@ -15,24 +18,27 @@ namespace WebApplication2.Models
         public string BookClubName { get; set; }
 
         [Required]
+
         [Display(Name = "BookClub Admin email address")]
+        [StringLength(55, ErrorMessage = "Book Club email address cannot be longer than 25 characters.")]
         public string AdminEmail { get; set; }
 
         [Required(ErrorMessage = "Tell us about your Book Club....")]
+        [StringLength(250, ErrorMessage = "Book Club Profile can be as long as 250 characters.")]
         [Display(Name = "BookClub Profile")]
         public string Profile { get; set; }
 
         [Required(ErrorMessage = "Indicate if the Book Club is open or closed for new members.")]
-        public string Status { get; set; }
+        public Status Status { get; set; }
 
         [Required(ErrorMessage = "What province is your Book Club in?")]
-        public string Province { get; set; }
+        public Province Province { get; set; }
 
         [Required(ErrorMessage = "What County is your Book Club in?")]
         public string County { get; set; }
 
 
-        [Required(ErrorMessage = "What Area within yourCounty is your Book Club in?")]
+        [Required(ErrorMessage = "What Area within your County is your Book Club in?")]
         public string Area { get; set; }
 
         [Required(ErrorMessage = "Select the local Library linked with your Book Club")]
