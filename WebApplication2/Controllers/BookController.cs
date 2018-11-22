@@ -114,7 +114,7 @@ if(books.ToList().Count == 0)
         // GET: Book/Create
         public ActionResult Create()
         {
-            //ViewBag.BookName = new ChoiceList(db.Books, "BookISBN", "BookName", "AuthorFName", "AuthLName");
+            //ViewBag.BookTitle = new ChoiceList(db.Books, "BookISBN", "BookTitle", "AuthorName");
             return View();
         }
 
@@ -164,7 +164,7 @@ if(books.ToList().Count == 0)
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookISBN,BookName,AuthorFirstName,AuthorLastName,Genre,GenreType")] Book book)
+        public ActionResult Edit([Bind(Include = "BookISBN,BookTitle,AuthorName,Genre,GenreType")] Book book)
         {
             if (ModelState.IsValid)
             {
