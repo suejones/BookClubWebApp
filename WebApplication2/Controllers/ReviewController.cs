@@ -48,7 +48,7 @@ namespace WebApplication2.Controllers
         // GET: Review/Create
         public ActionResult Create()
         {
-            ViewBag.BookISBN = new SelectList(db.Books, "BookISBN", "BookTitle");
+            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName");
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace WebApplication2.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BookISBN = new SelectList(db.Books, "BookISBN", "BookTitle", review.BookISBN);
+            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookTitle);
             return View(review);
         }
 
@@ -82,7 +82,7 @@ namespace WebApplication2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BookISBN = new SelectList(db.Books, "BookISBN", "BookTitle", review.BookISBN);
+            ViewBag.BookReview  = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookTitle);
             return View(review);
         }
 
@@ -99,7 +99,7 @@ namespace WebApplication2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BookISBN = new SelectList(db.Books, "BookISBN", "BookTitle", review.BookISBN);
+            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookTitle);
             return View(review);
         }
 

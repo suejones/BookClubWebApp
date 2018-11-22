@@ -123,7 +123,7 @@ if(books.ToList().Count == 0)
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookISBN,BookName,AuthorFirstName,AuthorLastName,Genre,GenreType")] Book book)
+        public ActionResult Create([Bind(Include = "BookISBN,BookName,AuthorName,Genre,GenreType")] Book book)
         {
             try
             {

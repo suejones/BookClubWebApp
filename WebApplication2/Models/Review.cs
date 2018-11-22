@@ -13,9 +13,9 @@ namespace WebApplication2.Models
 
         public string UserID { get; set; }
 
-        [Required(ErrorMessage = "Please select Book.")]
+        [Required(ErrorMessage = "Please enter the Book Title for the Book you wish to Add or View review.")]
         [Display(Name = "Book Title")]
-        public int BookISBN { get; set; }
+        public int BookTitle { get; set; }
 
         public virtual Book Book { get; set; }
 

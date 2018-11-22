@@ -55,7 +55,7 @@ namespace WebApplication2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookClubID,BookClubName,AdminEmail,Profile,Status,Province,County,Area,LibraryName,NextMeeting,CurrentRead")] BookClub bookClub)
+        public ActionResult Create([Bind(Include = "BookClubID,BookClubName,AdminEmail,Profile,Status,Province,County,Area,LibraryName,NextMeeting,CurrentRead, ReadList")] BookClub bookClub)
         {
             if (ModelState.IsValid)
             {
