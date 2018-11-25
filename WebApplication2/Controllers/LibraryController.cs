@@ -12,7 +12,7 @@ using WebApplication2.Models;
 namespace WebApplication2.Controllers
 {
     [Authorize]
-    public class LibraryController : Controller
+    public class LibraryController : Controller 
     {
         private BookClubContext db = new BookClubContext();
 

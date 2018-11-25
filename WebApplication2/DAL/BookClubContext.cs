@@ -15,8 +15,8 @@ namespace WebApplication2.DAL
     {
         public BookClubContext() : base("BookClubContext")
         {
-               //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbContext, EF6Console.Migrations.Configuration>());
-            
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DbContext, EF6Console.Migrations.Configuration>());
+     
         }
         
         public DbSet<Book> Books { get; set; }
@@ -25,8 +25,8 @@ namespace WebApplication2.DAL
         public DbSet<Library> Libraries { get; set; }
         public DbSet<BookClub> BookClubs { get; set; }
         public DbSet<BookClubMember> BookClubMembers { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        //public static IEnumerable<object> Roles { get; internal set; }
+        //public DbSet<Role> Roles { get; set; }
+        public static IEnumerable<object> Roles { get; internal set; }
 
         //to prevent EF to pluralize table names
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
