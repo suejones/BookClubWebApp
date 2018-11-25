@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
     [Authorize]
     public class BookClubController : Controller
     {
-        private BookClubContext db = new BookClubContext();
+        private DAL.BookClubContext db = new DAL.BookClubContext();
 
         // GET: BookClub
         public ActionResult Index()
@@ -55,7 +55,7 @@ namespace WebApplication2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookClubID,BookClubName,AdminEmail,Profile,Status,Province,County,Area,LibraryName,NextMeeting,CurrentRead, ReadList")] BookClub bookClub)
+        public ActionResult Create([Bind(Include = "BookClubName,AdminEmail,Profile,Status,Province,County,Area,LibraryName,NextMeeting,CurrentRead,")] BookClub bookClub)
         {
             if (ModelState.IsValid)
             {

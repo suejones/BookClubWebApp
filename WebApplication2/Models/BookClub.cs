@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication2.Models
 {
-    public enum Province {Leinster, Munster, Connaught, Ulster, }
+    public enum Province {Leinster, Munster, Connaught, Ulster }
     public enum Status { Open, Closed }
     
     public class BookClub
@@ -50,8 +50,8 @@ namespace WebApplication2.Models
         [Required(ErrorMessage = "Set the Current Read for your Book Club")]
         public string CurrentRead { get; set; }
 
-        [Required(ErrorMessage = "List last 10 books readby your Book Club")]
-        public IList ReadList { get; set; }
+        //[Required(ErrorMessage = "List last 10 books readby your Book Club")]
+        //public IList ReadList { get; set; }
 
         public virtual ICollection<BookClub> BookClubs { get; set; }
     }
