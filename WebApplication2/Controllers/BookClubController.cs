@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
     [Authorize]
     public class BookClubController : Controller
     {
-        private DAL.BookClubContext db = new DAL.BookClubContext();
+        private BookClubContext db = new BookClubContext();
 
         // GET: BookClub
         public ActionResult Index()
