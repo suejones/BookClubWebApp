@@ -44,6 +44,6 @@ namespace WebApplication2.Models
         //public int Rating { get; set; }
 
 
-        //public virtual ICollection<Review> Reviews { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

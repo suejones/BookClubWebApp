@@ -93,7 +93,7 @@ if(books.ToList().Count == 0)
        // GET: Book
        public ActionResult ViewAllBooks()
         {
-            var books = db.Books.Include(b => b.BookISBN);
+            var books = db.Books.Include(b => b.BookTitle);
             return View(books.ToList());
         }
 
