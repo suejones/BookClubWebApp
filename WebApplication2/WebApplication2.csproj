@@ -264,6 +264,10 @@
     <Compile Include="Migrations\201811221134488_update-database-verbose.Designer.cs">
       <DependentUpon>201811221134488_update-database-verbose.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811261222304_BookModel.cs" />
+    <Compile Include="Migrations\201811261222304_BookModel.Designer.cs">
+      <DependentUpon>201811261222304_BookModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -400,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811221134488_update-database-verbose.resx">
       <DependentUpon>201811221134488_update-database-verbose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811261222304_BookModel.resx">
+      <DependentUpon>201811261222304_BookModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
