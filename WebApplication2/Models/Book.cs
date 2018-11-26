@@ -34,7 +34,7 @@ namespace WebApplication2.Models
         [Display(Name = "Genre Type")]
         public GenreType GenreType { get; set; }
 
-        //public ?? BookCover {get;set;}
+        //public image BookCover {get;set;}
 
 
         /*[Optional(MessagePartCollection = "Optional.")]*/
