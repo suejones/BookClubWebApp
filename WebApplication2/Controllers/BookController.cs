@@ -84,12 +84,13 @@ if(books.ToList().Count == 0)
  //google api search
  // or redirect to add..do you want to add book
 
+
  return RedirectToAction("Create");
  */
 }
 
 
-       // GET: Books
+       // GET: Book
        public ActionResult ViewAllBooks()
         {
             var books = db.Books.Include(b => b.BookTitle);
@@ -123,7 +124,7 @@ if(books.ToList().Count == 0)
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookISBN,BookName,AuthorName,Genre,GenreType")] Book book)
+        public ActionResult Create([Bind(Include = "BookISBN,BookTitle,AuthorName,Genre,GenreType")] Book book)
         {
             try
             {

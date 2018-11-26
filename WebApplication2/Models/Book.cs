@@ -34,6 +34,7 @@ namespace WebApplication2.Models
         [Display(Name = "Genre Type")]
         public GenreType GenreType { get; set; }
 
+       public virtual ICollection<Book> Books { get; set; }
         //public image BookCover {get;set;}
 
 
