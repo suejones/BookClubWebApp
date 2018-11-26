@@ -268,6 +268,10 @@
     <Compile Include="Migrations\201811261222304_BookModel.Designer.cs">
       <DependentUpon>201811261222304_BookModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811262033517_reviews.cs" />
+    <Compile Include="Migrations\201811262033517_reviews.Designer.cs">
+      <DependentUpon>201811262033517_reviews.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -407,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811261222304_BookModel.resx">
       <DependentUpon>201811261222304_BookModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811262033517_reviews.resx">
+      <DependentUpon>201811262033517_reviews.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

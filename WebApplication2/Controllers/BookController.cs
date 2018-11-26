@@ -90,12 +90,14 @@ if(books.ToList().Count == 0)
 }
 
 
-       // GET: Book
+     
+        // GET: Book
        public ActionResult ViewAllBooks()
         {
             var books = db.Books.Include(b => b.BookTitle);
             return View(books.ToList());
         }
+      
 
         // GET: Book/Details/5
         public ActionResult Details(int? id)

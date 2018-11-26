@@ -17,7 +17,7 @@ namespace WebApplication2.Models
         [Display(Name = "Book Title")]
         public int BookTitle { get; set; }
 
-        public virtual Book Book { get; set; }
+        public Book Book { get; set; }
 
         [Required(ErrorMessage = "Please enter a Rating")]
         [Range(1, 10)]
