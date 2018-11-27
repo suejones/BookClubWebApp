@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 style="color:black">BookClub</h1>
+    <p style="color:black" class="lead">BookClub is a Web App designed to help manage your Bookclub</p>
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <h2>BookClub Services</h2>
+        <p>Book Club Admin can create and edit a BookClub Profile. Book Club members can view Book Club Data</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "BookClub")">BookClub View &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>BookClub Member Services</h2>
+        <p>Join your chosen BookClub</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "BookClubMember")">BookClubMember &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>Library Services</h2>
+        <p>Create edit or link a Library Profile to a BookClub. Book Club admin and members can view Library Data</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Library")">Library &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>Books</h2>
+        <p>Create, Edit or View the Books that our BookClubs are reading</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Book")">Books &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>Book Reviews</h2>
+        <p>Read or Add Book Review</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "Review")">Book Reviews &raquo;</a></p>
+    </div>
+    <div class="col-md-2">
+        <h2>Book Lists</h2>
+        <p>View selected reader Book Lists</p>
+        <p><a class="btn btn-default" href="@Url.Action("Index", "BookList")">Book Lists &raquo;</a></p>
+    </div>
+</div>

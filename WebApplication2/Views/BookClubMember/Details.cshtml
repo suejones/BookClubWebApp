@@ -1,0 +1,42 @@
+﻿@model WebApplication2.Models.BookClubMember
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BookClubMember</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MemberEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MemberEmail)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MemberID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
