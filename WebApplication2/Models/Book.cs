@@ -9,7 +9,7 @@ namespace WebApplication2.Models
 
     public enum GenreType { Fiction, NonFiction }
     public enum Genre { Thriller, Romance, Action, Sport, AutoBiography, History, Cookery, Health }
-
+    //test
 
     public class Book
     {
