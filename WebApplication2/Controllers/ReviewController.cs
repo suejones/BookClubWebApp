@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using WebApplication2.Abstract;
 using WebApplication2.DAL;
 using WebApplication2.Models;
@@ -46,9 +47,18 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Review/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Book book = db.Books.Find(id);
+            if (book == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.BookTitle = book.BookTitle;
             return View();
         }
 
@@ -57,16 +67,17 @@ namespace WebApplication2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReviewID,UserID,BookISBN,Rating,Comment")] Review review)
+        public ActionResult Create([Bind(Include = "BookISBN,Rating,Comment")] Review review)
         {
             if (ModelState.IsValid)
             {
+                review.UserID = User.Identity.GetUserId();
                 db.Reviews.Add(review);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookTitle);
+            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookISBN);
             return View(review);
         }
 
@@ -82,7 +93,7 @@ namespace WebApplication2.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.BookReview  = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookTitle);
+            ViewBag.BookReview  = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookISBN);
             return View(review);
         }
 
@@ -91,7 +102,7 @@ namespace WebApplication2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ReviewID,UserID,BookISBN,Rating,Comment")] Review review)
+        public ActionResult Edit([Bind(Include = "BookTitle,ReviewID,UserID,BookISBN,Rating,Comment")] Review review)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +110,7 @@ namespace WebApplication2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookTitle);
+            ViewBag.BookTitle = new SelectList(db.Books, "BookTitle", "AuthorName", review.BookISBN);
             return View(review);
         }
 

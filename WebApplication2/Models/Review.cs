@@ -15,9 +15,10 @@ namespace WebApplication2.Models
 
         [Required(ErrorMessage = "Please enter the Book Title for the Book you wish to Add or View review.")]
         [Display(Name = "Book Title")]
-        public int BookTitle { get; set; }
+        public int BookISBN { get; set; }
 
-        public Book Book { get; set; }
+        //navigation key
+        public virtual Book Book { get; set; }
 
         [Required(ErrorMessage = "Please enter a Rating")]
         [Range(1, 10)]

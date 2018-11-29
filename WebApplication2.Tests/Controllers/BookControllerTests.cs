@@ -39,7 +39,7 @@ namespace WebApplication2.Controllers.Tests
 
             var controller = new BookController(tc);
 
-            var viewResult = controller.Index() as ViewResult;
+            var viewResult = controller.Index(null) as ViewResult;
             Book[] result = ((IEnumerable<Book>)viewResult.ViewData.Model).ToArray();
 
             Assert.AreEqual(2, result.Length);

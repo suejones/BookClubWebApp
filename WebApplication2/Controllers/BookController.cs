@@ -26,10 +26,22 @@ namespace WebApplication2.Controllers
         }
         
         // GET: Book
-        public ActionResult Index()
+        public ActionResult Index(string bookTitleSearch)
         {
-            var books = db.Books;
-            return View(db.Books.ToList());
+
+            var books = db.Books.AsQueryable();
+            if(!String.IsNullOrEmpty(bookTitleSearch))
+            {
+                books = books.Where(t => t.BookTitle.Contains(bookTitleSearch));
+                if (books.Count() == 0)
+                {
+                    TempData["message"] = string.Format("This book does not exist - continue to add to Database");
+                    return RedirectToAction("Create");
+
+                }
+            }
+
+               return View(books.ToList());
         }
 
 
@@ -132,9 +144,17 @@ if(books.ToList().Count == 0)
             {
                 if (ModelState.IsValid)
                 {
-                    db.Books.Add(book);
-                    db.SaveChanges();
-                    return RedirectToAction("ViewAllBooks");
+                    if(db.Books.Any(b=>b.BookTitle==book.BookTitle))
+                    {
+                        ModelState.AddModelError("", "Unable to create this Book. These Book Title already exists");
+                    }
+                    else
+                    {
+                        db.Books.Add(book);
+                        db.SaveChanges();
+                        return RedirectToAction("Index");
+                    }
+
                 }
             }
             catch(DuplicateNameException)

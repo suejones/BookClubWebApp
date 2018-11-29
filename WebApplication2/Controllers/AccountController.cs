@@ -170,7 +170,7 @@ namespace WebApplication2.Controllers
                     //Assign Role to user Here      
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
                     //Ends Here    
-                    return RedirectToAction("Index", "Users");
+                    return RedirectToAction("Index", "User");
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("BCAdmin"))
                                           .ToList(), "Name", "Name");

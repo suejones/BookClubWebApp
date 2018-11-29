@@ -17,7 +17,7 @@
         <form class="form-inline" role="form">
             <div class="form-group">
                 <label class="sr-only" for="search-text">Book Title</label>
-                @Html.TextBox("bookSearch", "", new { @class = "form-control", @placeholder = "Search Book Title" })
+                @Html.TextBox("bookTitleSearch", "", new { @class = "form-control", @placeholder = "Search Book Title" })
             </div>
             <button type="submit" class="btn btn-success" id="search-btn">Search</button>
         </form>
@@ -60,8 +60,10 @@
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.BookISBN }) |
                 @Html.ActionLink("Details", "Details", new { id = item.BookISBN }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.BookISBN })
-            </td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.BookISBN }) |
+                @Html.ActionLink("Add Review", "Create", "Review", new { id = item.BookISBN }, new { })
+
+                </td>
         </tr>
     }
 
