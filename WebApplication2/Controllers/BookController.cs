@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -26,7 +27,7 @@ namespace WebApplication2.Controllers
         }
         
         // GET: Book
-        public ActionResult Index(string bookTitleSearch)
+        public ActionResult Index(string bookTitleSearch, string authorNameSearch, string genreSearch, string genreTypeSearch)
         {
 
             var books = db.Books.AsQueryable();
@@ -40,8 +41,48 @@ namespace WebApplication2.Controllers
 
                 }
             }
+           
+            if (!String.IsNullOrEmpty(authorNameSearch))
+            {
+                books = books.Where(t => t.AuthorName.Contains(authorNameSearch));
+                if (books.Count() == 0)
+                {
+                    TempData["message"] = string.Format("This Author does not exist - continue to add to Database");
+                    return RedirectToAction("Create");
 
-               return View(books.ToList());
+                }
+            }
+
+                var GenreList = new List<string>();
+            var GenreQ = from g in db.Books
+                        orderby g.Genre
+                        select g.Genre;
+
+
+            if (!String.IsNullOrEmpty(genreSearch))
+            {
+               
+                if (books.Count() == 0)
+                {
+                    TempData["message"] = string.Format("This Genre does not exist - continue to add to Database");
+                    return RedirectToAction("Create");
+                }
+            }
+
+            if (!String.IsNullOrEmpty(genreTypeSearch))
+            {
+                var GenreType = from t in db.Books
+                            orderby t.GenreType
+                            select t.GenreType;
+                books = books.Where(t => t.AuthorName.Contains(genreTypeSearch));
+                if (books.Count() == 0)
+                {
+                    TempData["message"] = string.Format("This Genre does not exist - continue to add to Database");
+                    return RedirectToAction("Create");
+                }
+            }
+
+            return View(books.ToList());
         }
 
 
@@ -63,19 +104,17 @@ namespace WebApplication2.Controllers
                     result = result.Where(t => t.AuthorName == searchBook.AuthorName);
                 }
 
-                /*if (!enum.(searchBook.Genre))
+                /*if (searchBook.Genre.)
                    {
                      result = result.Where(t => t.Genre == searchBook.Genre);
                     }
-
                 
-                if (searchBook.GenreType.)
+                if (searchBook.GenreType)
                     {
                        result = result.Where(t => t.GenreType == searchBook.GenreType);
-                    }*/
+                    }
+                */
 
-
-//you have an extra if statement here in case the result is null to redirect to Create page
                     }
                     return View("Index", result.OrderByDescending(t => t.AuthorName));
 

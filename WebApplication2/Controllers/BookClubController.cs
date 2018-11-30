@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using WebApplication2.Abstract;
 using WebApplication2.DAL;
 using WebApplication2.Models;
 
@@ -14,10 +15,62 @@ namespace WebApplication2.Controllers
     [Authorize]
     public class BookClubController : Controller
     {
-        private BookClubContext db = new BookClubContext();
+        //from Microsoft Docs - Mocking EF when Unit Testing Web API 2
+
+        private IBookClubContext db = new BookClubContext();
+
+        public BookClubController() { }
+        public BookClubController(IBookClubContext context)
+        {
+            db = context;
+        }
 
         // GET: BookClub
-        public ActionResult Index()
+        public ActionResult Index(string bookClubNameSearch, string bookClubCountySearch, string bookClubAreaSearch)
+        {
+            var bcname = db.BookClubs.AsQueryable();
+            if (!String.IsNullOrEmpty(bookClubNameSearch))
+            {
+                bcname = bcname.Where(c => c.BookClubName.Contains(bookClubNameSearch));
+                if (bcname.Count() == 0)
+                {
+                    TempData["message"] = string.Format("This Book Club does not exist in our DB - View Index");
+                    return RedirectToAction("Index");
+
+                }
+            }
+            if (!String.IsNullOrEmpty(bookClubCountySearch))
+            {
+                bcname = bcname.Where(t => t.County.Contains(bookClubCountySearch));
+                if (bcname.Count() == 0)
+                {
+                    TempData["message"] = string.Format("This County does not have a BookClub on our DB - continue to search Database");
+                    return RedirectToAction("Create");
+
+                }
+            }
+            if (!String.IsNullOrEmpty(bookClubAreaSearch))
+            {
+                bcname = bcname.Where(t => t.County.Contains(bookClubAreaSearch));
+                if (bcname.Count() == 0)
+                {
+                    TempData["message"] = string.Format("This County does not have a BookClub on our DB - continue to search Database");
+                    return RedirectToAction("Create");
+
+                }
+            }
+            return View(db.BookClubs.ToList());
+          
+
+        }
+
+
+
+
+
+
+            // GET: BookClub
+            public ActionResult Index2()
         {
             return View(db.BookClubs.ToList());
         }
@@ -49,7 +102,7 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-
+      
         // POST: BookClub/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -91,7 +144,7 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bookClub).State = EntityState.Modified;
+                db.MarkAsModified(bookClub);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

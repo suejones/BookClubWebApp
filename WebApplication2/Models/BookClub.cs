@@ -5,8 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace WebApplication2.Models
 {
     public enum Province {Leinster, Munster, Connaught, Ulster }
-    public enum Status { Open, Closed }
-    
+
     public class BookClub
     {
         [Key]
@@ -28,8 +27,6 @@ namespace WebApplication2.Models
         [Display(Name = "BookClub Profile")]
         public string Profile { get; set; }
 
-        [Required(ErrorMessage = "Indicate if the Book Club is open or closed for new members.")]
-        public Status Status { get; set; }
 
         [Required(ErrorMessage = "What province is your Book Club in?")]
         public Province Province { get; set; }

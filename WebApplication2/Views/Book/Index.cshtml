@@ -17,7 +17,11 @@
         <form class="form-inline" role="form">
             <div class="form-group">
                 <label class="sr-only" for="search-text">Book Title</label>
-                @Html.TextBox("bookTitleSearch", "", new { @class = "form-control", @placeholder = "Search Book Title" })
+                @Html.TextBox("bookTitleSearch", "", new { @class = "form-control", @placeholder = "Search by Book Title" })
+                @Html.TextBox("authorNameSearch", "", new { @class = "form-control", @placeholder = "Search by Author Name" })
+                @*@@Html.DropDownList("genreSearch", "All")*@
+                @Html.TextBox("genreSearch", "", new { @class = "form-control", @placeholder = "Search by Genre" })
+                @Html.TextBox("genreTypeSearch", "", new { @class = "form-control", @placeholder = "Search by GenreType" })
             </div>
             <button type="submit" class="btn btn-success" id="search-btn">Search</button>
         </form>

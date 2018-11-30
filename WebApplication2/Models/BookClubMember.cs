@@ -11,6 +11,9 @@ namespace WebApplication2.Models
         [Key]
         public int MemberID { get; set; }
 
+        //navigation key
+        public virtual BookClub BookClub { get; set; }
+
         [Required(ErrorMessage = "What is your first name.")]
         [StringLength(55, ErrorMessage = "First Name cannot be longer than 25 characters.")]
         [Display(Name = "Member First Name")]
@@ -27,5 +30,6 @@ namespace WebApplication2.Models
         public string MemberEmail { get; set; }
 
         public virtual ICollection<BookClubMember> BookClubMembers { get; set; }
+        public virtual ICollection<BookClub> BookClubs { get; set; }
     }
 }
