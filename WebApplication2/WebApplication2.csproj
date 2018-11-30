@@ -275,6 +275,10 @@
     <Compile Include="Migrations\201811292001010_changeFKonReview.Designer.cs">
       <DependentUpon>201811292001010_changeFKonReview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811301644274_bclubandbcmemberchanges.cs" />
+    <Compile Include="Migrations\201811301644274_bclubandbcmemberchanges.Designer.cs">
+      <DependentUpon>201811301644274_bclubandbcmemberchanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Book.cs" />
@@ -418,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201811292001010_changeFKonReview.resx">
       <DependentUpon>201811292001010_changeFKonReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811301644274_bclubandbcmemberchanges.resx">
+      <DependentUpon>201811301644274_bclubandbcmemberchanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
