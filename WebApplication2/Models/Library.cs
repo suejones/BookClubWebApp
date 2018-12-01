@@ -30,5 +30,11 @@ namespace WebApplication2.Models
 
         [Required(ErrorMessage = "What Area within your County is your Library in?")]
         public string Area { get; set; }
+
+        //navigation key
+        public virtual BookClub BookClub { get; set; }
+
+        public virtual ICollection<Library> Libraries { get; set; }
+        public virtual ICollection<BookClub> BookClubs { get; set; }
     }
 }
